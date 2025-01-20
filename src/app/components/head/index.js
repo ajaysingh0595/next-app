@@ -25,7 +25,6 @@ const Search = styled('div')(({ theme }) => ({
     marginLeft: theme.spacing(3),
     width: 'auto',
   },
-  display: { xs: 'none', sm: 'flex' },
 }));
 
 const SearchIconWrapper = styled('div')(({ theme }) => ({
@@ -66,27 +65,30 @@ export default function PrimarySearchAppBar() {
           >
             Brand Name
           </Typography>
-          <Search theme={theme}>
-            <SearchIconWrapper theme={theme}>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search…"
-              inputProps={{ 'aria-label': 'search' }}
-              theme={theme}
-            />
-          </Search>
-          <Box sx={{ flexGrow: 1 }} />
-          <IconButton
-            size="large"
-            edge="end"
-            aria-label="account of current user"
-            aria-haspopup="true"
-            color="inherit"
-            sx={{ display: { xs: 'block', sm: 'block' } }}
-          >
-            <AccountCircle />
-          </IconButton>
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', sm: 'flex' } }}>
+            <Search theme={theme}>
+              <SearchIconWrapper theme={theme}>
+                <SearchIcon />
+              </SearchIconWrapper>
+              <StyledInputBase
+                placeholder="Search…"
+                inputProps={{ 'aria-label': 'search' }}
+                theme={theme}
+              />
+            </Search>
+          </Box>
+          <Box sx={{ display: 'flex', alignItems: 'center', ml: 'auto' }}>
+            <Typography sx={{ display: { xs: 'none', sm: 'block' }, mr: 2 }}>John</Typography>
+            <IconButton
+              size="large"
+              edge="end"
+              aria-label="account of current user"
+              aria-haspopup="true"
+              color="inherit"
+            >
+              <AccountCircle />
+            </IconButton>
+          </Box>
         </Toolbar>
       </AppBar>
     </Box>
